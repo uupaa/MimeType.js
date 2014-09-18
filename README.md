@@ -2,7 +2,7 @@
 
 [![npm](https://nodei.co/npm/uupaa.wmmimetype.js.png?downloads=true&stars=true)](https://nodei.co/npm/uupaa.wmmimetype.js/)
 
-WMMimeType.js description.
+MimeType.
 
 ## Document
 
@@ -18,7 +18,7 @@ WMMimeType.js description.
 ```js
 <script src="lib/WMMimeType.js"></script>
 <script>
-console.log( WMMimeType() );
+console.log( WMMimeType.getMimeType("swf") ); // "application/x-shockwave-flash"
 </script>
 ```
 
@@ -27,7 +27,7 @@ console.log( WMMimeType() );
 ```js
 importScripts("lib/WMMimeType.js");
 
-console.log( WMMimeType() );
+console.log( WMMimeType.getMimeType("m4a") ); // "audio/x-m4a"
 ```
 
 ### Node.js
@@ -35,5 +35,5 @@ console.log( WMMimeType() );
 ```js
 var WMMimeType = require("lib/WMMimeType.js");
 
-console.log( WMMimeType() );
+console.log( WMMimeType.getMimeType("json") ); // "application/json"
 ```
