@@ -21,7 +21,9 @@ return new Test("WMMimeType", {
 function testWMMimeType_isText(test, pass, miss) {
     if ( WMMimeType.isText("txt") ||
          WMMimeType.isText("css") ||
-         WMMimeType.isText("html") ) {
+         WMMimeType.isText("html") ||
+         WMMimeType.isText(".html") ||
+         WMMimeType.isText(".HTML") ) {
         test.done(pass());
     } else {
         test.done(miss());
@@ -32,7 +34,9 @@ function testWMMimeType_isAudio(test, pass, miss) {
     if ( WMMimeType.isAudio("mp3")  ||
          WMMimeType.isAudio("wave") ||
          WMMimeType.isAudio("mid")  ||
-         WMMimeType.isAudio("m4a") ) {
+         WMMimeType.isAudio("m4a")  ||
+         WMMimeType.isAudio(".m4a") ||
+         WMMimeType.isAudio(".M4A") ) {
         test.done(pass());
     } else {
         test.done(miss());
@@ -41,7 +45,9 @@ function testWMMimeType_isAudio(test, pass, miss) {
 
 function testWMMimeType_isVideo(test, pass, miss) {
     if ( WMMimeType.isVideo("mp4") ||
-         WMMimeType.isVideo("mpg") ) {
+         WMMimeType.isVideo("mpg") ||
+         WMMimeType.isVideo(".mpg") ||
+         WMMimeType.isVideo(".MPG") ) {
         test.done(pass());
     } else {
         test.done(miss());
@@ -50,7 +56,9 @@ function testWMMimeType_isVideo(test, pass, miss) {
 
 function testWMMimeType_getMimeType(test, pass, miss) {
     if ( WMMimeType.getMimeType("js")   === "application/javascript" ||
-         WMMimeType.getMimeType("json") === "application/json" ) {
+         WMMimeType.getMimeType("json") === "application/json" ||
+         WMMimeType.getMimeType(".json") === "application/json" ||
+         WMMimeType.getMimeType(".JSON") === "application/json" ) {
         test.done(pass());
     } else {
         test.done(miss());
