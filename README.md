@@ -1,0 +1,4 @@
+WMMimeType.js
+=============
+
+MimeType
