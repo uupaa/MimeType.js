@@ -17,7 +17,7 @@ return new Test("WMMimeType", {
         testWMMimeType_isImage,
         testWMMimeType_isAudio,
         testWMMimeType_isVideo,
-        testWMMimeType_getMimeType,
+        testWMMimeType_getType,
     ]).run().clone();
 
 function testWMMimeType_isText(test, pass, miss) {
@@ -80,11 +80,11 @@ function testWMMimeType_isVideo(test, pass, miss) {
     }
 }
 
-function testWMMimeType_getMimeType(test, pass, miss) {
-    if ( WMMimeType.getMimeType("js")   === "application/javascript" ||
-         WMMimeType.getMimeType("json") === "application/json" ||
-         WMMimeType.getMimeType(".json") === "application/json" ||
-         WMMimeType.getMimeType(".JSON") === "application/json" ) {
+function testWMMimeType_getType(test, pass, miss) {
+    if ( WMMimeType.getType("js")   === "application/javascript" ||
+         WMMimeType.getType("json") === "application/json" ||
+         WMMimeType.getType(".json") === "application/json" ||
+         WMMimeType.getType(".JSON") === "application/json" ) {
         test.done(pass());
     } else {
         test.done(miss());

@@ -1,6 +1,6 @@
 {
   "name":           "uupaa.wmmimetype.js",
-  "version":        "0.0.5",
+  "version":        "0.0.6",
   "description":    "MimeType.",
   "url":            "https://github.com/uupaa/WMMimeType.js",
   "keywords":       ["MimeType", "util", "WebModule", "uupaa", "Unstable"],
