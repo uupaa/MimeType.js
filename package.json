@@ -1,6 +1,6 @@
 {
   "name": "uupaa.wmmimetype.js",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "MimeType.",
   "url": "https://github.com/uupaa/WMMimeType.js",
   "keywords": [
@@ -29,6 +29,7 @@
     "hint": "jshint lib/*.js",
     "score": "node ../WebModule/run/score.js; open lint/plato/index.html",
     "patch": "node ../WebModule/run/patch.js",
+    "setup": "node ../WebModule/run/setup.js",
     "start": "cd ../; Python -m SimpleHTTPServer 8000 &",
     "stop": "killall -- Python -m SimpleHTTPServer 8000; exit 0"
   },
