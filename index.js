@@ -1,3 +1,3 @@
-//module.exports = require("./bin/WMMimeType");
-module.exports = require("./lib/WMMimeType");
+//module.exports = require("./bin/MimeType");
+module.exports = require("./lib/MimeType");
 

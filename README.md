@@ -1,39 +1,38 @@
-# WMMimeType.js [![Build Status](https://travis-ci.org/uupaa/WMMimeType.js.png)](http://travis-ci.org/uupaa/WMMimeType.js)
+# MimeType.js [![Build Status](https://travis-ci.org/uupaa/MimeType.js.svg)](https://travis-ci.org/uupaa/MimeType.js)
 
-[![npm](https://nodei.co/npm/uupaa.wmmimetype.js.png?downloads=true&stars=true)](https://nodei.co/npm/uupaa.wmmimetype.js/)
+[![npm](https://nodei.co/npm/uupaa.mimetype.js.svg?downloads=true&stars=true)](https://nodei.co/npm/uupaa.mimetype.js/)
 
-MimeType.
+MimeType detection.
 
-## Document
+This module made of [WebModule](https://github.com/uupaa/WebModule).
 
-- [WMMimeType.js wiki](https://github.com/uupaa/WMMimeType.js/wiki/WMMimeType)
-- [WebModule](https://github.com/uupaa/WebModule)
-    - [Slide](http://uupaa.github.io/Slide/slide/WebModule/index.html)
-    - [Development](https://github.com/uupaa/WebModule/wiki/Development)
+## Documentation
+- [Spec](https://github.com/uupaa/MimeType.js/wiki/)
+- [API Spec](https://github.com/uupaa/MimeType.js/wiki/MimeType)
 
-## How to use
-
-### Browser
+## Browser, NW.js and Electron
 
 ```js
-<script src="lib/WMMimeType.js"></script>
+<script src="<module-dir>/lib/WebModule.js"></script>
+<script src="<module-dir>/lib/MimeType.js"></script>
 <script>
-console.log( WMMimeType.getMimeType("swf") ); // "application/x-shockwave-flash"
+console.log( MimeType.getMimeType("swf") ); // "application/x-shockwave-flash"
 </script>
 ```
 
-### WebWorkers
+## WebWorkers
 
 ```js
-importScripts("lib/WMMimeType.js");
+importScripts("<module-dir>lib/WebModule.js");
+importScripts("<module-dir>lib/MimeType.js");
 
-console.log( WMMimeType.getMimeType("m4a") ); // "audio/x-m4a"
 ```
 
-### Node.js
+## Node.js
 
 ```js
-var WMMimeType = require("lib/WMMimeType.js");
+require("<module-dir>lib/WebModule.js");
+require("<module-dir>lib/MimeType.js");
 
-console.log( WMMimeType.getMimeType("json") ); // "application/json"
 ```
+

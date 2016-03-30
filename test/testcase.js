@@ -1,95 +1,108 @@
-var ModuleTestWMMimeType = (function(global) {
+var ModuleTestMimeType = (function(global) {
 
-var _runOnNode = "process" in global;
-var _runOnWorker = "WorkerLocation" in global;
-var _runOnBrowser = "document" in global;
+var test = new Test(["MimeType"], { // Add the ModuleName to be tested here (if necessary).
+        disable:    false, // disable all tests.
+        browser:    true,  // enable browser test.
+        worker:     true,  // enable worker test.
+        node:       true,  // enable node test.
+        nw:         true,  // enable nw.js test.
+        el:         true,  // enable electron (render process) test.
+        button:     true,  // show button.
+        both:       true,  // test the primary and secondary modules.
+        ignoreError:false, // ignore error.
+        callback:   function() {
+        },
+        errorback:  function(error) {
+            console.error(error.message);
+        }
+    });
 
-return new Test("WMMimeType", {
-        disable:    false,
-        browser:    true,
-        worker:     true,
-        node:       true,
-        button:     true,
-        both:       true, // test the primary module and secondary module
-    }).add([
-        testWMMimeType_isText,
-        testWMMimeType_isFont,
-        testWMMimeType_isImage,
-        testWMMimeType_isAudio,
-        testWMMimeType_isVideo,
-        testWMMimeType_getType,
-    ]).run().clone();
+if (IN_BROWSER || IN_NW || IN_EL || IN_WORKER || IN_NODE) {
+    test.add([
+        testMimeType_isText,
+        testMimeType_isFont,
+        testMimeType_isImage,
+        testMimeType_isAudio,
+        testMimeType_isVideo,
+        testMimeType_getMimeType,
+    ]);
+}
 
-function testWMMimeType_isText(test, pass, miss) {
-    if ( WMMimeType.isText("txt") ||
-         WMMimeType.isText("css") ||
-         WMMimeType.isText("html") ||
-         WMMimeType.isText(".html") ||
-         WMMimeType.isText(".HTML") ) {
+var MimeType = WebModule["MimeType"];
+
+// --- test cases ------------------------------------------
+function testMimeType_isText(test, pass, miss) {
+    if ( MimeType.isText("txt") ||
+         MimeType.isText("css") ||
+         MimeType.isText("html") ||
+         MimeType.isText(".html") ||
+         MimeType.isText(".HTML") ) {
         test.done(pass());
     } else {
         test.done(miss());
     }
 }
 
-function testWMMimeType_isFont(test, pass, miss) {
-    if ( WMMimeType.isFont("ttf") ||
-         WMMimeType.isFont("otf") ||
-         WMMimeType.isFont("woff") ||
-         WMMimeType.isFont(".woff") ||
-         WMMimeType.isFont(".WOFF") ) {
+function testMimeType_isFont(test, pass, miss) {
+    if ( MimeType.isFont("ttf") ||
+         MimeType.isFont("otf") ||
+         MimeType.isFont("woff") ||
+         MimeType.isFont(".woff") ||
+         MimeType.isFont(".WOFF") ) {
         test.done(pass());
     } else {
         test.done(miss());
     }
 }
 
-function testWMMimeType_isImage(test, pass, miss) {
-    if ( WMMimeType.isImage("gif") ||
-         WMMimeType.isImage("png") ||
-         WMMimeType.isImage("jpeg") ||
-         WMMimeType.isImage(".jpg") ||
-         WMMimeType.isImage(".JPEG") ) {
+function testMimeType_isImage(test, pass, miss) {
+    if ( MimeType.isImage("gif") ||
+         MimeType.isImage("png") ||
+         MimeType.isImage("jpeg") ||
+         MimeType.isImage(".jpg") ||
+         MimeType.isImage(".JPEG") ) {
         test.done(pass());
     } else {
         test.done(miss());
     }
 }
 
-function testWMMimeType_isAudio(test, pass, miss) {
-    if ( WMMimeType.isAudio("mp3")  ||
-         WMMimeType.isAudio("wave") ||
-         WMMimeType.isAudio("mid")  ||
-         WMMimeType.isAudio("m4a")  ||
-         WMMimeType.isAudio(".m4a") ||
-         WMMimeType.isAudio(".M4A") ) {
+function testMimeType_isAudio(test, pass, miss) {
+    if ( MimeType.isAudio("mp3")  ||
+         MimeType.isAudio("wave") ||
+         MimeType.isAudio("mid")  ||
+         MimeType.isAudio("m4a")  ||
+         MimeType.isAudio(".m4a") ||
+         MimeType.isAudio(".M4A") ) {
         test.done(pass());
     } else {
         test.done(miss());
     }
 }
 
-function testWMMimeType_isVideo(test, pass, miss) {
-    if ( WMMimeType.isVideo("mp4") ||
-         WMMimeType.isVideo("mpg") ||
-         WMMimeType.isVideo(".mpg") ||
-         WMMimeType.isVideo(".MPG") ) {
+function testMimeType_isVideo(test, pass, miss) {
+    if ( MimeType.isVideo("mp4") ||
+         MimeType.isVideo("mpg") ||
+         MimeType.isVideo(".mpg") ||
+         MimeType.isVideo(".MPG") ) {
         test.done(pass());
     } else {
         test.done(miss());
     }
 }
 
-function testWMMimeType_getType(test, pass, miss) {
-    if ( WMMimeType.getType("js")   === "application/javascript" ||
-         WMMimeType.getType("json") === "application/json" ||
-         WMMimeType.getType(".json") === "application/json" ||
-         WMMimeType.getType(".JSON") === "application/json" ) {
+function testMimeType_getMimeType(test, pass, miss) {
+    if ( MimeType.getMimeType("js")   === "application/javascript" ||
+         MimeType.getMimeType("json") === "application/json" ||
+         MimeType.getMimeType(".json") === "application/json" ||
+         MimeType.getMimeType(".JSON") === "application/json" ) {
         test.done(pass());
     } else {
         test.done(miss());
     }
 }
 
-})((this || 0).self || global);
+return test.run();
+
+})(GLOBAL);
 
