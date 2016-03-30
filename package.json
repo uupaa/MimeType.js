@@ -1,6 +1,6 @@
 {
   "name": "uupaa.mimetype.js",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "MimeType detection.",
   "url": "https://github.com/uupaa/MimeType.js",
   "keywords": ["MimeType", "uupaa", "WebModule", "Unstable"],
